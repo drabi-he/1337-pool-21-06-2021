@@ -6,13 +6,13 @@
 /*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 15:44:34 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/28 15:51:08 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/06/29 18:22:38 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (s1[i] && i < n)
@@ -27,3 +27,13 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		return (-1);
 	return (0);
 }
+/*
+int main()
+{
+	char	s1[] = "Hello";
+	char	s2[] = "hello";
+
+	int	rst = ft_strncmp(s1,s2,5);
+	return rst;
+}
+*/
