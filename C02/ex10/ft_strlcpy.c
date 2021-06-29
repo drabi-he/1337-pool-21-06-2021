@@ -6,14 +6,14 @@
 /*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 11:28:34 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/28 14:36:12 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/06/29 18:11:10 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
-	int	src_size;
+	unsigned int	i;
+	unsigned int	src_size;
 
 	src_size = 0;
 	while (src[src_size])
@@ -29,3 +29,13 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	dest[i] = '\0';
 	return (src_size);
 }
+/*
+int main()
+{
+	char src[] = "hello";
+	char dest[3];
+
+	unsigned int size = ft_strlcpy(dest,src,3);
+	return size;
+}
+*/
