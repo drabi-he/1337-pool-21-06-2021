@@ -1,0 +1,5 @@
+Credentials cache: API:38A89DEB-E476-40DA-9180-55EA0F43C13D
+        Principal: hdrabi@1337.MA
+
+  Issued                Expires               Principal
+Jun 21 13:03:07 2021  Jun 21 23:02:52 2021  krbtgt/1337.MA@1337.MA
