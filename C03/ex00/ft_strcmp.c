@@ -6,7 +6,7 @@
 /*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 15:31:04 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/28 15:38:03 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/06/30 11:58:31 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (s1[i])
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 	{
-		if (s1[i] < s2[i])
-			return (-1);
-		if (s1[i] > s2[i])
-			return (1);
 		i++;
 	}
-	if (s2[i] != '\0')
-		return (-1);
-	return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
