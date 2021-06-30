@@ -6,7 +6,7 @@
 /*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 17:02:26 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/28 17:47:17 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/06/30 13:20:40 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ char	*ft_strstr(char *str, char *to_find)
 			return (str + pos);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
