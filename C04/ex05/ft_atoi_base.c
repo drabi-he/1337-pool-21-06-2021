@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 11:06:46 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/01 13:48:03 by hdrabi           ###   ########.fr       */
+/*   Created: 2021/07/01 16:29:42 by hdrabi            #+#    #+#             */
+/*   Updated: 2021/07/01 16:55:56 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-unsigned int	ft_check_base(char *base)
+int	ft_check_base(char *base)
 {
 	int	base_size;
 	int	j;
@@ -24,7 +18,8 @@ unsigned int	ft_check_base(char *base)
 	base_size = 0;
 	while (base[base_size])
 	{
-		if (base[base_size] == '-' || base[base_size] == '+')
+		if (base[base_size] == '-' || base[base_size] == '+'
+			|| base[base_size] == ' ')
 			return (0);
 		j = base_size + 1;
 		while (base[j])
@@ -42,29 +37,44 @@ unsigned int	ft_check_base(char *base)
 	return (base_size);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int	ft_base_index(char *base, char c)
 {
-	unsigned int	check_base;
-	unsigned int	nb;
+	int	i;
 
-	check_base = ft_check_base(base);
-	if (!check_base)
-		return ;
-	if (nbr < 0)
-		ft_putchar('-');
-	nb = (unsigned int)nbr;
-	if (nb < check_base)
-		ft_putchar(base[nb]);
-	else
+	i = 0;
+	while (base[i] && base[i] != c)
+		i++;
+	return (i);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int	minus;
+	int	rst;
+
+	minus = 1;
+	if (!ft_check_base(base))
+		return (0);
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	while (*str == '+' || *str == '-')
 	{
-		ft_putnbr_base(nb / check_base, base);
-		ft_putchar(base[nb % check_base]);
+		if (*str == '-')
+			minus *= -1;
+		str++;
 	}
+	rst = 0;
+	while (ft_base_index(base, *str) != ft_check_base(base))
+	{
+		rst = rst * ft_check_base(base) + ft_base_index(base, *str);
+		str++;
+	}
+	return (rst * minus);
 }
 /*
 int	main(void)
 {
-	ft_putnbr_base(10, "01");
+	printf("%d", ft_atoi_base(" --+a b", "0123456789abcdef"));
 	return (0);
 }
 */
