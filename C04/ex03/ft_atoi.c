@@ -3,87 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 11:55:19 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/29 16:21:50 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/01 11:15:49 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>*/
-int	ft_power(int nb, int p)
+#include <stdio.h>
+int	ft_atoi(char *str)
 {
-	if (p == 0)
-		return (1);
-	return (nb * ft_power(nb, p - 1));
-}
-
-int	ft_minus_nb(char *str)
-{
+	int	rst;
 	int	i;
-	int	cp;
+	int	minus;
 
+	rst = 0;
+	minus = 1;
 	i = 0;
-	cp = 0;
-	while (str[i])
+	while (str[i] && (str[i] <= '0' || str[i] >= '9'))
 	{
+		if (!((str[i] >= 9 && str[i] <= 32) || str[i] == '+' || str[i] == '-'))
+			return (0);
 		if (str[i] == '-')
-			cp++;
-		if (str[i] >= '0' && str[i] <= '9')
-			break ;
-		i++;
-	}
-	return (cp);
-}
-
-void	ft_get_number(char *str, char *dest)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i] && (str[i] < '0' || str[i] > '9'))
-	{
+			minus *= -1;
 		i++;
 	}
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		dest[j] = str[i];
-		i++;
-		j++;
-	}
-	dest[j] = '\0';
-}
-
-int	ft_atoi(char *str)
-{
-	int		dest_size;
-	int		i;
-	int		rst;
-	int		minus;
-	char	dest[11];
-
-	dest_size = 0;
-	i = 0;
-	rst = 0;
-	minus = ft_minus_nb(str);
-	ft_get_number(str, dest);
-	while (dest[dest_size])
-		dest_size++;
-	while (dest[i])
-	{
-		rst = rst + ((dest[i] - 48) * ft_power(10, dest_size - 1 - i));
+		rst = rst * 10 + str[i] - '0';
 		i++;
 	}
-	if (minus % 2 != 0)
-		rst *= -1;
-	return (rst);
+	return (rst * minus);
 }
 /*
 int	main(void)
 {
-	char	src[] = " ---+--+1234ab567";
+	char	*src = " ---+--+1234ab567";
 
 	printf("the number is : %d", ft_atoi(src));
 	return (0);
