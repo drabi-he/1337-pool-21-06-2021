@@ -6,10 +6,10 @@
 /*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 17:02:26 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/30 13:20:40 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/02 11:30:18 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stddef.h>
 char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
