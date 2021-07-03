@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 17:02:26 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/03 11:06:39 by hdrabi           ###   ########.fr       */
+/*   Created: 2021/07/03 11:29:18 by hdrabi            #+#    #+#             */
+/*   Updated: 2021/07/03 11:49:19 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_find_next_prime(int nb)
 {
 	int	i;
-	int	j;
 
-	if (to_find[0] == '\0')
-		return (str);
-	i = 0;
-	while (str[i])
+	if (nb == 2)
+		return (nb);
+	if (nb % 2 == 0)
+		return (ft_find_next_prime(nb + 1));
+	i = 2;
+	while (i <= nb / 2)
 	{
-		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
-			j++;
-		}
+		if (nb % i == 0)
+			return (ft_find_next_prime(nb + 2));
 		i++;
 	}
-	return (0);
+	return (nb);
 }
 /*
 int main()
 {
-	char *str = "hello world!!";
-	char *to_find = "";
-	printf("%s",ft_strstr(str,to_find));
-	return (0);
+    printf("%d",ft_find_next_prime(91));
+    return 0;
 }
 */

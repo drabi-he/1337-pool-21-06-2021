@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 17:02:26 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/03 11:06:39 by hdrabi           ###   ########.fr       */
+/*   Created: 2021/07/03 11:09:33 by hdrabi            #+#    #+#             */
+/*   Updated: 2021/07/03 11:45:08 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_is_prime(int nb)
 {
 	int	i;
-	int	j;
 
-	if (to_find[0] == '\0')
-		return (str);
-	i = 0;
-	while (str[i])
+	if (nb <= 1)
+		return (0);
+	i = 2;
+	while (i <= nb / 2)
 	{
-		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
-			j++;
-		}
+		if (nb % i == 0)
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 /*
 int main()
 {
-	char *str = "hello world!!";
-	char *to_find = "";
-	printf("%s",ft_strstr(str,to_find));
-	return (0);
+    for(int i = 0; i <=100; i++)
+    {
+        printf("is %d prime ? %d\n",i,ft_is_prime(i));
+    }
+    return 0;
 }
 */

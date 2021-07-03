@@ -1,44 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 17:02:26 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/03 11:06:39 by hdrabi           ###   ########.fr       */
+/*   Created: 2021/07/03 10:26:29 by hdrabi            #+#    #+#             */
+/*   Updated: 2021/07/03 11:05:51 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_fibonacci(int index)
 {
-	int	i;
-	int	j;
-
-	if (to_find[0] == '\0')
-		return (str);
-	i = 0;
-	while (str[i])
-	{
-		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1 || index == 2)
+		return (1);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 /*
 int main()
 {
-	char *str = "hello world!!";
-	char *to_find = "";
-	printf("%s",ft_strstr(str,to_find));
-	return (0);
+    printf("%d\n",ft_fibonacci(7));
+    printf("%d\n",ft_fibonacci(8));
+    printf("%d\n",ft_fibonacci(10));
+
+    return 0;
 }
 */

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 17:02:26 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/03 11:06:39 by hdrabi           ###   ########.fr       */
+/*   Created: 2021/07/03 10:37:53 by hdrabi            #+#    #+#             */
+/*   Updated: 2021/07/03 11:08:12 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_sqrt(int nb)
 {
 	int	i;
-	int	j;
 
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
-	while (str[i])
+	if (nb == 1)
+		return (1);
+	while (i <= nb / 2)
 	{
-		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
-			j++;
-		}
+		if (i * i == nb)
+			return (i);
 		i++;
 	}
 	return (0);
@@ -36,9 +28,7 @@ char	*ft_strstr(char *str, char *to_find)
 /*
 int main()
 {
-	char *str = "hello world!!";
-	char *to_find = "";
-	printf("%s",ft_strstr(str,to_find));
-	return (0);
+    printf("%d",ft_sqrt(15));
+    return 0;
 }
 */
