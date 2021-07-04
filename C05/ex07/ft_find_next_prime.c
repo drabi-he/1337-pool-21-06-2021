@@ -6,13 +6,13 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 11:29:18 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/04 08:18:29 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/04 15:42:02 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_find_next_prime(int nb)
+int	ft_find_next_prime(int nb)
 {
-	int i;
+	int	i;
 
 	if (nb < 2)
 		return (2);

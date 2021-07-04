@@ -6,13 +6,13 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 10:37:53 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/04 10:29:04 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/04 15:40:47 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_sqrt(int nb)
+int	ft_sqrt(int nb)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (nb == 1)

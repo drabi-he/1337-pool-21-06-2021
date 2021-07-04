@@ -6,13 +6,13 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 11:09:33 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/04 08:40:45 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/04 15:41:27 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_is_prime(int nb)
+int	ft_is_prime(int nb)
 {
-	int i;
+	int	i;
 
 	if (nb <= 1 || (nb % 2 == 0 && nb != 2))
 		return (0);
@@ -27,7 +27,7 @@ int ft_is_prime(int nb)
 	}
 	return (1);
 }
-
+/*
 int main()
 {
 	for (int i = 0; i <= 100; i++)
@@ -36,3 +36,4 @@ int main()
 	}
 	return 0;
 }
+*/
