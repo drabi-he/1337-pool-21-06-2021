@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:29:42 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/01 16:55:56 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/04 15:26:50 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_check_base(char *base)
 	while (base[base_size])
 	{
 		if (base[base_size] == '-' || base[base_size] == '+'
-			|| base[base_size] == ' ')
+			|| base[base_size] <= ' ')
 			return (0);
 		j = base_size + 1;
 		while (base[j])

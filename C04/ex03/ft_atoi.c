@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 11:55:19 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/01 13:41:02 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/04 11:44:56 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int	ft_atoi(char *str)
 	rst = 0;
 	minus = 1;
 	i = 0;
-	while (str[i] && (str[i] <= '0' || str[i] >= '9'))
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 	{
-		if (!((str[i] >= 9 && str[i] <= 13) || str[i] == ' '
-				|| str[i] == '+' || str[i] == '-'))
-			return (0);
+		i++;
+	}
+	while (str[i] == '+' || str[i] == '-')
+	{
 		if (str[i] == '-')
 			minus *= -1;
 		i++;
@@ -37,9 +38,9 @@ int	ft_atoi(char *str)
 	return (rst * minus);
 }
 /*
-int	main(void)
+int main(void)
 {
-	char	*src = " ---+--+1234ab567";
+	char *src = " ---+--+- 12 34ab567";
 
 	printf("the number is : %d", ft_atoi(src));
 	return (0);

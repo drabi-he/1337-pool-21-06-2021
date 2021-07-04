@@ -6,11 +6,11 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:06:46 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/01 13:48:03 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/04 15:26:18 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -24,7 +24,8 @@ unsigned int	ft_check_base(char *base)
 	base_size = 0;
 	while (base[base_size])
 	{
-		if (base[base_size] == '-' || base[base_size] == '+')
+		if (base[base_size] == '-' || base[base_size] == '+'
+			|| base[base_size] <= ' ' || base[base_size] == 127)
 			return (0);
 		j = base_size + 1;
 		while (base[j])
@@ -62,9 +63,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 }
 /*
-int	main(void)
+int main(void)
 {
-	ft_putnbr_base(10, "01");
+	ft_putnbr_base(-2147483648, "0123456789");
 	return (0);
 }
 */

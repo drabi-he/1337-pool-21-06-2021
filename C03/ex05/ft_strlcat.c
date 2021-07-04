@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 11:53:22 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/03 13:28:35 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/04 11:44:14 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 /*
 int main()
 {
-	unsigned int s = 14;
-	char *src = "world!!";
+	unsigned int s = 26;
+	char *src = "world!!!";
 	char s2[20] = "hello ";
 	printf("return = %u | s2 = %s\n", ft_strlcat(s2, src, s), s2);
 	return 0;
