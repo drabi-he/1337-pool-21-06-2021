@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 10:37:53 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/05 19:11:57 by hdrabi           ###   ########.fr       */
+/*   Created: 2021/07/05 14:49:13 by hdrabi            #+#    #+#             */
+/*   Updated: 2021/07/05 15:12:26 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_sqrt(int nb)
+int *ft_range(int min, int max)
 {
-	int i;
+    int *t;
+    int i;
+    int count;
 
-	i = 0;
-	if (nb == 1)
-		return (1);
-	while (i <= 46340)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
-	return (0);
+    if (min >= max)
+        return (0);
+
+    if (!(t = malloc(sizeof(int) * (max - min))))
+        return (0);
+    i = 0;
+    count = max - min;
+    while (i < count)
+    {
+        t[i] = min + i;
+        i++;
+    }
+    return (t);
 }
-
+/*
 int main()
 {
-	printf("%d\n", ft_sqrt(1986306624));
+    int *t;
 
-	return 0;
+    t = ft_range(2, 9);
+    for (int i = 0; i < 7; i++)
+    {
+        printf(" %d |", t[i]);
+    }
 }
+*/

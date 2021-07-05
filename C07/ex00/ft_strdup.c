@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 10:37:53 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/05 19:11:57 by hdrabi           ###   ########.fr       */
+/*   Created: 2021/07/05 12:22:04 by hdrabi            #+#    #+#             */
+/*   Updated: 2021/07/05 15:12:32 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_sqrt(int nb)
+#include <stdlib.h>
+char *ft_strdup(char *src)
 {
-	int i;
+    char *copy;
+    int size;
+    int i;
 
-	i = 0;
-	if (nb == 1)
-		return (1);
-	while (i <= 46340)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
-	return (0);
+    size = 0;
+    while (src[size])
+    {
+        size++;
+    }
+    if (!(copy = malloc(sizeof(char) * (size + 1))))
+        return (NULL);
+    i = 0;
+    while (src[i])
+    {
+        copy[i] = src[i];
+        i++;
+    }
+    copy[i] = '\0';
+    return (copy);
 }
-
+/*
 int main()
 {
-	printf("%d\n", ft_sqrt(1986306624));
-
-	return 0;
+    char *src = "hello";
+    printf("%s", ft_strdup(src));
 }
+*/
