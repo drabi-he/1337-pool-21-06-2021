@@ -6,61 +6,78 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:06:46 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/04 15:26:18 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/05 10:39:29 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
+void	ft_print(unsigned int n, char *base, unsigned int size)
+{
+	if (n > size - 1)
+	{
+		ft_print(n / size, base, size);
+		n %= size;
+	}
+	ft_putchar(base[n]);
+}
+
+int	ft_strlen(char *base)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (*base++)
+	{
+		i++;
+	}
+	return (i);
+}
+
 unsigned int	ft_check_base(char *base)
 {
-	int	base_size;
-	int	j;
+	unsigned int	i;
 
-	base_size = 0;
-	while (base[base_size])
-	{
-		if (base[base_size] == '-' || base[base_size] == '+'
-			|| base[base_size] <= ' ' || base[base_size] == 127)
-			return (0);
-		j = base_size + 1;
-		while (base[j])
-		{
-			if (base[base_size] == base[j])
-			{
-				return (0);
-			}
-			j++;
-		}
-		base_size++;
-	}
-	if (base_size <= 1)
+	if (ft_strlen(base) < 2)
 		return (0);
-	return (base_size);
+	if (*base == '-' || *base == '+' || *base <= 32 || *base == 127)
+		return (0);
+	while (*base)
+	{
+		i = 1;
+		while (base[i])
+		{
+			if (*base == base[i] || base[i] == '-' || base[i] == '+'
+				|| base[i] <= 32 || base[i] == 127)
+				return (0);
+			i++;
+		}
+		base++;
+	}
+	return (1);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	unsigned int	check_base;
-	unsigned int	nb;
+	unsigned int	n;
+	unsigned int	size;
 
-	check_base = ft_check_base(base);
-	if (!check_base)
+	if (!ft_check_base(base))
 		return ;
 	if (nbr < 0)
-		ft_putchar('-');
-	nb = (unsigned int)nbr;
-	if (nb < check_base)
-		ft_putchar(base[nb]);
-	else
 	{
-		ft_putnbr_base(nb / check_base, base);
-		ft_putchar(base[nb % check_base]);
+		n = -nbr;
+		ft_putchar('-');
 	}
+	else
+		n = nbr;
+	size = ft_strlen(base);
+	ft_print(n, base, size);
 }
 /*
 int main(void)
