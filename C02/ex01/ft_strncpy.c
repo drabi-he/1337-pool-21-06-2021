@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 11:05:27 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/30 10:35:22 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/06 14:38:08 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char *ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int	i;
+	unsigned int i;
 
 	i = 0;
 	while (i < n && src[i] != '\0')
@@ -27,12 +27,11 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	}
 	return (dest);
 }
-/*
+
 int main()
 {
 	char src[] = "hello";
-	char dest[]="";
-	ft_strncpy(dest,src,5);
+	char dest[] = "";
+	printf("%s", ft_strncpy(dest, src, 5));
 	return 0;
 }
-*/

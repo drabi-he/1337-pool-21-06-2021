@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrabi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:10:44 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/06/28 16:31:41 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/06 11:00:32 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+char *ft_strcat(char *dest, char *src)
 {
-	int	i;
-	int	dest_size;
+	int i;
+	int dest_size;
 
 	i = 0;
 	dest_size = 0;
