@@ -6,46 +6,18 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 12:34:24 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/06 16:07:23 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/06 17:08:05 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 void			ft_concta(char *dest, char *src);
 int				ft_strlen(char *base);
 unsigned int	ft_check_base(char *base);
 int				ft_base_index(char *base, char c);
 void			ft_print(unsigned int n, char *base,
 					unsigned int size, char *nbr);
-
-int	ft_atoi(char *str)
-{
-	int	rst;
-	int	i;
-	int	minus;
-
-	rst = 0;
-	minus = 1;
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-	{
-		i++;
-	}
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			minus *= -1;
-		i++;
-	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		rst = rst * 10 + str[i] - '0';
-		i++;
-	}
-	return (rst * minus);
-}
 
 int	ft_atoi_base(char *str, char *base)
 {
@@ -78,17 +50,16 @@ char	*ft_putnbr_base(int nbr, char *base)
 	unsigned int	size;
 	char			*nbr2;
 
-	if (!ft_check_base(base))
-		return (NULL);
 	if (nbr < 0)
 	{
 		n = -nbr;
-		write(1, "-", 1);
 	}
 	else
 		n = nbr;
+	nbr2 = malloc(sizeof(char) * 11);
+	if (nbr < 0)
+		*nbr2 = '-';
 	size = ft_strlen(base);
-	nbr2 = malloc(sizeof(char) * 10);
 	ft_print(n, base, size, nbr2);
 	return (nbr2);
 }
@@ -111,7 +82,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 /*
 int	main(void)
 {
-	char	*nbr = "     -++--aaaaaaa";
+	char	*nbr = "  --+-10kjhkjh";
 	char	*base_from = "0123456789";
 	char	*base_to = "0123456789abcdef";
 
