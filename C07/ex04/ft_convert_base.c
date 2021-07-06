@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 12:34:24 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/06 15:09:44 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/06 16:07:23 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 /*
 int	main(void)
 {
-	char	*nbr = "     -++--2147483648";
+	char	*nbr = "     -++--aaaaaaa";
 	char	*base_from = "0123456789";
 	char	*base_to = "0123456789abcdef";
 

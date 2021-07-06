@@ -6,28 +6,28 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 11:29:18 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/05 19:24:44 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/06 16:19:23 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+int ft_prime(int nb)
+{
+	int n;
+	
+	n = 1;
+	if(nb <2)
+		return (0);
+	while (++n < nb)
+		if (!(nb % n))
+			return (0);
+	return (1);
+}
+
 int ft_find_next_prime(int nb)
 {
-	int i;
-
-	if (nb <= 2)
-		return (2);
-	if (nb % 2 == 0)
+	while (nb < 2147483647 && !ft_prime(nb))
 		nb++;
-	i = 2;
-	while (i <= nb / 2)
-	{
-		if (nb % i == 0)
-		{
-			i = 1;
-			nb += 2;
-		}
-		i++;
-	}
 	return (nb);
 }
 
