@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:01:34 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/04 20:42:26 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/07 18:58:01 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 		write(1, *argv + i, 1);
 		i++;
 	}
+	write(1, "\n", 1);
 	return (argc);
 }

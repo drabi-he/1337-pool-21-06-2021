@@ -6,12 +6,12 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:49:03 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/04 20:52:55 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/07 19:01:58 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
+#include <stdio.h>
 void	ft_swap(char **argv, int i, int j)
 {
 	char	*str;
@@ -21,11 +21,15 @@ void	ft_swap(char **argv, int i, int j)
 	k = 0;
 	while (argv[j][k])
 	{
-		if ((unsigned char)argv[i][k] - (unsigned char)argv[j][k] > 0)
+		if (argv[j][k] != argv[i][k])
 		{
-			str = argv[i];
-			argv[i] = argv[j];
-			argv[j] = str;
+			if ((unsigned char)argv[i][k] - (unsigned char)argv[j][k] > 0)
+			{
+				str = argv[i];
+				argv[i] = argv[j];
+				argv[j] = str;
+			}
+			break ;
 		}
 		k++;
 	}
