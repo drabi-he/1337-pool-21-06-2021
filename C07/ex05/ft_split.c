@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 16:40:03 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/08 15:17:00 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/09 10:44:32 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,24 @@ int	ft_count_words(char *str, char *charset)
 	int	i;
 	int	j;
 	int	word_cp;
+	int	k;
 
-	i = 0;
+	i = -1;
+	k = 0;
 	word_cp = 0;
-	while (str[i])
+	while (str[++i])
 	{
-		j = 0;
-		while (charset[j])
-		{
+		j = -1;
+		while (charset[++j])
 			if (str[i] == charset[j])
 				break ;
-			else
-				j++;
-		}
-		if (charset[j] || !str[i + 1])
+		if (!charset[j])
+			k++;
+		if ((charset[j] && k != 0) || !str[i + 1])
+		{
 			word_cp++;
-		i++;
+			k = 0;
+		}
 	}
 	return (word_cp);
 }
@@ -109,15 +111,15 @@ char	**ft_split(char *str, char *charset)
 /*
 int main()
 {
-    char *str = "real eyes,realize|real lies";
-    char *charset = " ,|";
-    char **rst = ft_split(str, charset);
-    int k = 0;
+	char *str = "real eyes,realize|real lies";
+	char *charset = " ,|";
+	char **rst = ft_split(str, charset);
+	int k = 0;
 
-    while (rst[k])
-    {
-        printf("rst[%d] = %s\n", k + 1, rst[k]);
-        k++;
-    }
+	while (rst[k])
+	{
+		printf("rst[%d] = %s\n", k + 1, rst[k]);
+		k++;
+	}
 }
 */
