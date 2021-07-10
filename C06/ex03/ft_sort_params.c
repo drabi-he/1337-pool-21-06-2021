@@ -6,15 +6,15 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:49:03 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/10 11:35:03 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/10 12:49:37 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
@@ -24,7 +24,7 @@ int ft_strcmp(char *s1, char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-void ft_print(char **argv, int i, int j)
+void	ft_print(char **argv, int i, int j)
 {
 	while (argv[i])
 	{
@@ -39,11 +39,11 @@ void ft_print(char **argv, int i, int j)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
-	int j;
-	char *str;
+	int		i;
+	int		j;
+	char	*str;
 
 	i = 1;
 	while (argv[i])
