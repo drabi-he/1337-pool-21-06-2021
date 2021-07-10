@@ -6,36 +6,25 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 18:49:03 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/07 19:01:58 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/10 11:35:03 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-void	ft_swap(char **argv, int i, int j)
+int ft_strcmp(char *s1, char *s2)
 {
-	char	*str;
-	int		k;
+	int i;
 
-	str = NULL;
-	k = 0;
-	while (argv[j][k])
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 	{
-		if (argv[j][k] != argv[i][k])
-		{
-			if ((unsigned char)argv[i][k] - (unsigned char)argv[j][k] > 0)
-			{
-				str = argv[i];
-				argv[i] = argv[j];
-				argv[j] = str;
-			}
-			break ;
-		}
-		k++;
+		i++;
 	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-void	ft_print(char **argv, int i, int j)
+void ft_print(char **argv, int i, int j)
 {
 	while (argv[i])
 	{
@@ -50,10 +39,11 @@ void	ft_print(char **argv, int i, int j)
 	}
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
+	char *str;
 
 	i = 1;
 	while (argv[i])
@@ -61,7 +51,12 @@ int	main(int argc, char **argv)
 		j = i + 1;
 		while (argv[j])
 		{
-			ft_swap(argv, i, j);
+			if (ft_strcmp(argv[i], argv[j]) > 0)
+			{
+				str = argv[i];
+				argv[i] = argv[j];
+				argv[j] = str;
+			}
 			j++;
 		}
 		i++;
