@@ -6,16 +6,16 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 16:40:03 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/10 12:08:06 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/10 13:00:52 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-char *ft_strcpy(char *dest, char *src, int s, int e)
+char	*ft_strcpy(char *dest, char *src, int s, int e)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s < e)
@@ -28,10 +28,10 @@ char *ft_strcpy(char *dest, char *src, int s, int e)
 	return (dest);
 }
 
-int ft_count_char(char *str, char *charset, int *i, int *s)
+int	ft_count_char(char *str, char *charset, int *i, int *s)
 {
-	int j;
-	int char_cp;
+	int	j;
+	int	char_cp;
 
 	*s = *i;
 	char_cp = 0;
@@ -41,25 +41,25 @@ int ft_count_char(char *str, char *charset, int *i, int *s)
 		while (charset[j])
 		{
 			if (str[*i] == charset[j])
-				break;
+				break ;
 			else
 				j++;
 		}
 		if (!charset[j])
 			char_cp++;
 		else
-			break;
+			break ;
 		++*i;
 	}
 	return (char_cp);
 }
 
-int ft_count_words(char *str, char *charset)
+int	ft_count_words(char *str, char *charset)
 {
-	int i;
-	int j;
-	int word_cp;
-	int k;
+	int	i;
+	int	j;
+	int	word_cp;
+	int	k;
 
 	i = -1;
 	k = 0;
@@ -69,7 +69,7 @@ int ft_count_words(char *str, char *charset)
 		j = -1;
 		while (charset[++j])
 			if (str[i] == charset[j])
-				break;
+				break ;
 		if (!charset[j])
 			k++;
 		if ((charset[j] && k != 0) || (str[i + 1] == '\0' && k != 0))
@@ -81,13 +81,13 @@ int ft_count_words(char *str, char *charset)
 	return (word_cp);
 }
 
-char **ft_split(char *str, char *charset)
+char	**ft_split(char *str, char *charset)
 {
-	char **rst;
-	int i;
-	int k;
-	int size;
-	int start;
+	char	**rst;
+	int		i;
+	int		k;
+	int		size;
+	int		start;
 
 	i = 0;
 	k = 0;

@@ -6,15 +6,15 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 18:00:22 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/10 12:10:21 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/10 12:59:08 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -22,10 +22,10 @@ int ft_strlen(char *str)
 	return (i);
 }
 
-void ft_concta(char *dest, char *src)
+void	ft_concta(char *dest, char *src)
 {
-	int i;
-	int dest_size;
+	int	i;
+	int	dest_size;
 
 	i = 0;
 	dest_size = 0;
@@ -39,11 +39,11 @@ void ft_concta(char *dest, char *src)
 	dest[dest_size + i] = '\0';
 }
 
-char *ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int lenght;
-	int i;
-	char *concat;
+	int		lenght;
+	int		i;
+	char	*concat;
 
 	if (size > 0)
 		lenght = ft_strlen(sep) * (size - 1);
@@ -70,14 +70,14 @@ char *ft_strjoin(int size, char **strs, char *sep)
 /*
 int main()
 {
-    char *sep = " | ";
-    char *col[5];
+	char *sep = " | ";
+	char *col[5];
 
-    col[0] = "1";
-    col[1] = "22";
-    col[2] = "333";
-    col[3] = "4444";
-    col[4] = "55555";
-    printf("********\n%s\n", ft_strjoin(5, col, sep));
+	col[0] = "1";
+	col[1] = "22";
+	col[2] = "333";
+	col[3] = "4444";
+	col[4] = "55555";
+	printf("********\n%s\n", ft_strjoin(0, col, sep));
 }
 */
