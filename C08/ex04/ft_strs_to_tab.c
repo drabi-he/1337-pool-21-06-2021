@@ -6,7 +6,7 @@
 /*   By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 19:05:36 by hdrabi            #+#    #+#             */
-/*   Updated: 2021/07/11 20:28:19 by hdrabi           ###   ########.fr       */
+/*   Updated: 2021/07/12 09:59:31 by hdrabi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		rst[i].copy = ft_strdup(av[i]);
 		i++;
 	}
-	rst[i].str = '\0';
+	rst[i].str = 0;
 	return (rst);
 }
 /*
