@@ -2,7 +2,7 @@
 CC = gcc
 FLAGS =-Wall -Werror -Wextra
 ARC= ar cr
-OBJ =srcs/ft_putchar.o srcs/ft_putstr.o srcs/ft_strcmp.o srcs/ft_swap.o srcs/ft_strlen.o
+OBJ =$(patsubst srcs/%.c,srcs/%.o,$(wildcard srcs/*.c))
 
 all: libft.a
 
