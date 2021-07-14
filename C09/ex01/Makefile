@@ -1,21 +1,33 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hdrabi <hdrabi@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/07/14 10:09:21 by hdrabi            #+#    #+#              #
+#    Updated: 2021/07/14 10:18:58 by hdrabi           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = gcc
-FLAGS =-Wall -Werror -Wextra
-ARC= ar cr
-OBJ =$(patsubst srcs/%.c,srcs/%.o,$(wildcard srcs/*.c))
+SRCS = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
+NAME = libft.a
+OBJS = $(addprefix srcs/,${SRCS:.c=.o})
+FLAG = gcc -Wall -Werror -Wextra
+.c.o :
+	${FLAG} -c -I./includes $< -o ${<:.c=.o}
 
-all: libft.a
+${NAME} : ${OBJS}
+	ar cr $@ $^
 
-libft.a:$(OBJ)
-	$(ARC) $@ $^
-
-%.o: %.c 
-	$(CC) $(FLAGS) -c -I./includes $< -o $@
+all : ${NAME}
 
 clean:
-	rm srcs/*.o
+	rm -f ${OBJS}
 
 fclean: clean
-	rm libft.a
+	rm -f ${NAME}
 
 re: fclean all
+
+.PHONY : all clean fclean re
